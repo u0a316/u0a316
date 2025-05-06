@@ -69,19 +69,18 @@
   <!-- Script typing -->
   <script>
     const text = ". <(curl u0a316.github.io/ascii-live-termux)";
-    const typing = document.getElementById("text");
+    const typing = document.getElementById("typing");
 
     function startTyping() {
       typing.textContent = "";
       let i = 0;
-
       function typeChar() {
         if (i < text.length) {
           typing.textContent += text.charAt(i);
           i++;
-          setTimeout(typeChar, 100);
+          setTimeout(typeChar, 1000);
         } else {
-          setTimeout(startTyping, 2000);
+          setTimeout(startTyping, 2100);
         }
       }
 
