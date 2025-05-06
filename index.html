@@ -17,10 +17,6 @@
       height: 100vh;
       overflow: hidden;
     }
-    #typing {
-      white-space: pre;
-      text-shadow: 0 0 5px #0f0;
-    }
 
 #typing, .cursor {
   position: absolute;
@@ -32,13 +28,14 @@
   font-size: 2.5rem;
   font-family: monospace;
   white-space: pre;
+  text-shadow: 0 0 5px #0f0;
 }
 
     
     .cursor {
       display: inline-block;
       width: 1ch;
-      animation: blink 1s steps(2, start) infinite;
+      animation: blink 1s steps(3, start) infinite;
     }
 
     @keyframes blink {
