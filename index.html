@@ -2,17 +2,20 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <title>Typing Animation</title>
+  <title>Typing Animation with Nyan Cat</title>
+  <link rel="stylesheet" href="src/css/index.css" />
   <style>
     body {
       font-family: monospace;
-      font-size: 2.5rem;
+      font-size: 2rem;
       background: #111;
       color: #0f0;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
+      justify-content: center;
       height: 100vh;
+      overflow: hidden;
     }
     #typing {
       white-space: pre;
@@ -29,40 +32,48 @@
   </style>
 </head>
 <body>
-  <div class="rainbow"><div class="sprite"></div></div>
-<ul class="stars">
-  <li><i></i><li><i></i><li><i></i><li><i></i>
-  <li><i></i><li><i></i><li><i></i><li><i></i>
-  <li><i></i><li><i></i><li><i></i><li><i></i>
-</ul>
-<div class="cat">
-  <div class="tail"><div class="sprite"></div></div>
-  <div class="feet"><div class="sprite"></div></div>
-  <div class="poptart"></div>
-  <div class="head"></div>
-</div>
-  <div id="typing"></div><div class="cursor">|</div>
+  <!-- Efek mengetik -->
+  <div>
+    <div id="typing"></div><div class="cursor">|</div>
+  </div>
 
+  <!-- Nyancat di bawah -->
+  <div class="rainbow"><div class="sprite"></div></div>
+  <ul class="stars">
+    <li><i></i><li><i></i><li><i></i><li><i></i>
+    <li><i></i><li><i></i><li><i></i><li><i></i>
+    <li><i></i><li><i></i><li><i></i><li><i></i>
+  </ul>
+  <div class="cat">
+    <div class="tail"><div class="sprite"></div></div>
+    <div class="feet"><div class="sprite"></div></div>
+    <div class="poptart"></div>
+    <div class="head"></div>
+  </div>
+
+  <!-- Script typing -->
   <script>
     const text = ". <(curl u0a316.github.io/termcreed)";
     const typing = document.getElementById("typing");
 
-    let i = 0;
-    function type() {
-      if (i < text.length) {
-        typing.textContent += text.charAt(i);
-        i++;
-        setTimeout(type, 100);
-      } else {
-        setTimeout(() => {
-          typing.textContent = "";
-          i = 0;
-          type();
-        }, 2000); // jeda sebelum mengulang
+    function startTyping() {
+      typing.textContent = "";
+      let i = 0;
+
+      function typeChar() {
+        if (i < text.length) {
+          typing.textContent += text.charAt(i);
+          i++;
+          setTimeout(typeChar, 100);
+        } else {
+          setTimeout(startTyping, 2000);
+        }
       }
+
+      typeChar();
     }
 
-    type();
+    startTyping();
   </script>
 </body>
 </html>
