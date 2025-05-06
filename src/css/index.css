@@ -1,1 +1,56 @@
-t
+@import "compass/css3";
+
+// Settings
+$scale: 10px;
+$speed: 1s;
+
+// Colors
+$pink: #f9f;
+$tan: #fc9;
+$magenta: #f39;
+$gray: #999;
+$peach: #f99;
+$sky: #036;
+$red: #f00;
+$orange: #f90;
+$yellow: #ff0;
+$green: #3f0;
+$light-blue: #09f;
+$blue: #63f;
+
+
+
+// ==================================
+// Layout, General
+// ==================================
+
+body {
+  background: $sky;
+  overflow: hidden;
+  margin: 0;
+}
+
+.cat, .poptart, .head, .feet, .tail, .rainbow, .sprite, .stars li, .stars li i  {
+  position: absolute;
+  background-repeat: no-repeat;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-timing-function: step-end;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+
+// ==================================
+// Cat Container
+// ==================================
+
+.cat {
+  top: 50%;
+  left: 50%;
+  margin-left: $scale*-10;
