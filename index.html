@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Typing Animation</title>
+  <style>
+    body {
+      font-family: monospace;
+      font-size: 1.5rem;
+      background: #111;
+      color: #0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    #typing {
+      white-space: pre;
+    }
+    .cursor {
+      display: inline-block;
+      width: 1ch;
+      animation: blink 1s steps(2, start) infinite;
+    }
+
+    @keyframes blink {
+      to { visibility: hidden; }
+    }
+  </style>
+</head>
+<body>
+  <div id="typing"></div><div class="cursor">|</div>
+
+  <script>
+    const text = "Selamat datang di my blog";
+    const typing = document.getElementById("typing");
+
+    let i = 0;
+    function type() {
+      if (i < text.length) {
+        typing.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, 100);
+      } else {
+        setTimeout(() => {
+          typing.textContent = "";
+          i = 0;
+          type();
+        }, 2000); // jeda sebelum mengulang
+      }
+    }
+
+    type();
+  </script>
+</body>
+</html>
