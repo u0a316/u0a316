@@ -1,2 +1,1 @@
-# . <(curl -L u0a316.github.io/ascii-live-termux)
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?u0a316=voyager19878"/>
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=u0a316&theme=tokyonight" />
